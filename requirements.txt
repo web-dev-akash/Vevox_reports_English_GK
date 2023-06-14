@@ -1,0 +1,6 @@
+Flask
+Gunicorn
+Pandas
+Gspread
+Oauth2client
+Openpyxl
