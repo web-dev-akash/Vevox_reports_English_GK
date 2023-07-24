@@ -34,11 +34,11 @@ def view():
         )
     ]
     newPollingData['Total answers correct'] = newPollingData['Total answers correct'].fillna(0)
-    totalPolledData = pd.read_excel(file, sheet_name='Polling Results', header=3, usecols='D:Z', nrows=0)
+    totalPolledData = pd.read_excel(file, sheet_name='Polling Results', header=3, usecols='D:U', nrows=0)
     totalPolledColumns = totalPolledData.columns.tolist()
     polledCount = sum(1 for column in totalPolledColumns if 'Not Polled' not in column)
 
-    totalAttempted = pd.read_excel(file, sheet_name='Polling Results', header=8, usecols="A:Z")
+    totalAttempted = pd.read_excel(file, sheet_name='Polling Results', header=8, usecols="A:U")
     newTotalAttempted = totalAttempted[
         totalAttempted[['First Name', 'Last Name']].apply(
             lambda row: (row['First Name'], row['Last Name']) in newData[['First Name', 'Last Name']].values,
